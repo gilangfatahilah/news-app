@@ -44,7 +44,6 @@ const goToPage = (newPage: number) => {
 watch(
   () => props.query,
   (newValue) => {
-    console.log(newValue);
     dataQuery.value = newValue;
     fetchData(dataQuery.value);
   }

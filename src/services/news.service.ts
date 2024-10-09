@@ -8,6 +8,7 @@ const API = ({ headers = {}, params = {} } = {}): AxiosInstance => {
     baseURL: `${BASE_URL}/v2`,
     headers: {
       'Content-type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
       'x-api-key': API_KEY,
       ...headers,
     },

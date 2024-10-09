@@ -24,7 +24,6 @@ const fetchData = async (category: string = "general") => {
       pageSize: 10,
       category,
     });
-    console.log(data);
     newsData.value = data.articles;
   } catch (error) {
     console.log("Unexpected error occurred");
