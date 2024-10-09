@@ -26,15 +26,13 @@ const handleSearch = (query: string) => {
 </script>
 
 <template>
-  <main class="min-h-screen">
-    <Navbar
-      @select-category="handleSelectCategory"
-      @search="handleSearch"
-      @history="isHistory = true"
-    />
-    <Home v-if="!isSearch && !isHistory" :category="newsCategory" />
-    <SearchResult v-if="isSearch" :query="searchQuery" />
-    <History v-if="isHistory" />
-    <Footer />
-  </main>
+  <Navbar
+    @select-category="handleSelectCategory"
+    @search="handleSearch"
+    @history="(isHistory = true), (isSearch = false)"
+  />
+  <Home v-if="!isSearch && !isHistory" :category="newsCategory" />
+  <SearchResult v-if="isSearch" :query="searchQuery" />
+  <History v-if="isHistory" />
+  <Footer />
 </template>

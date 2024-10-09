@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { News } from "@/types";
-import { formatDate } from "@/lib/utils";
+import { formatDate, cn } from "@/lib/utils";
 
 const data: News[] = JSON.parse(localStorage.getItem("visitedNews") ?? "[]");
 
@@ -24,13 +24,22 @@ const paginatedData = computed(() => {
 
 <template>
   <section class="container py-8 space-y-8 lg:py-12 lg:space-y-12">
-    <div class="w-full flex justify-center">
+    <div
+      :class="
+        cn('w-full flex justify-center', {
+          'h-[50vh] items-center': !data.length,
+        })
+      "
+    >
       <h1 class="text-center text-4xl lg:text-6xl font-bold">
         {{ data.length ? "Your history news" : "No news visited yet" }}
       </h1>
     </div>
 
-    <div class="md:w-3/4 md:mx-auto grid lg:grid-cols-4 place-items-start lg:gap-8">
+    <div
+      v-if="data.length"
+      class="md:w-3/4 md:mx-auto grid lg:grid-cols-4 place-items-start lg:gap-8"
+    >
       <Card
         v-for="({ title, url, urlToImage, publishedAt, source }, index) in paginatedData"
         :key="index"
