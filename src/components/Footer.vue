@@ -7,7 +7,7 @@ import LinkedInIcon from "@/icons/LinkedInIcon.vue";
 <template>
   <footer id="footer" class="mt-auto w-full pt-24 sm:pt-16">
     <div class="p-10 bg-muted/50 rounded-xl">
-      <div class="flex justify-between">
+      <div class="flex flex-col md:flex-row justify-between gap-2">
         <div class="col-span-full xl:col-span-2">
           <a href="#" class="flex font-bold items-center">
             <img src="/src/assets/logo.svg" alt="logo" />

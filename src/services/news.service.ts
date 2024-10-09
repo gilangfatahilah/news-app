@@ -5,10 +5,9 @@ const API = ({ headers = {}, params = {} } = {}): AxiosInstance => {
   const API_KEY = import.meta.env.VITE_APP_API_KEY ?? process.env.VUE_APP_API_KEY
 
   const instance = axios.create({
-    baseURL: `${BASE_URL}/v2`,
+    baseURL: `https://cors-anywhere.herokuapp.com/${BASE_URL}/v2`,
     headers: {
       'Content-type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
       'x-api-key': API_KEY,
       ...headers,
     },
