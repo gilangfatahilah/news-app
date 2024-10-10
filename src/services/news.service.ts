@@ -7,6 +7,9 @@ const API = ({ headers = {}, params = {} } = {}): AxiosInstance => {
   const instance = axios.create({
     baseURL: `${BASE_URL}/v2`,
     headers: {
+      "Access-Control-Allow-Origin": '*',
+      'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With, x-api-key ',
       'Content-type': 'application/json',
       'x-api-key': API_KEY,
       ...headers,
